@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tela de Login — Estudo de Caso ES</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="bg-glow glow-1"></div>
+<div class="bg-glow glow-2"></div>
+
+<div class="wrapper">
+
+  <!-- ── Info Panel ── -->
+  <div class="info-panel">
+    <div class="badge">
+      <span class="badge-dot"></span>
+      Engenharia de Software — CEUB
+    </div>
+
+    <h2 class="info-heading">
+      Estudo de Caso:<br>
+      <em>Testes de Software</em>
+    </h2>
+    <p class="info-desc">
+      Simulação interativa da tela de Login implementando todos os
+      Casos de Teste definidos na especificação de Caso de Uso.
+    </p>
+
+    <div class="ct-list">
+      <div class="ct-item">
+        <div class="ct-num">01</div>
+        <div class="ct-text"><strong>Campo obrigatório</strong>Submeter sem preencher login e/ou senha</div>
+      </div>
+      <div class="ct-item">
+        <div class="ct-num">02</div>
+        <div class="ct-text"><strong>Login inválido</strong>Login inexistente com senha válida</div>
+      </div>
+      <div class="ct-item">
+        <div class="ct-num">03</div>
+        <div class="ct-text"><strong>Senha inválida</strong>Login válido com senha incorreta</div>
+      </div>
+      <div class="ct-item">
+        <div class="ct-num">04</div>
+        <div class="ct-text"><strong>Bloqueio — RN01</strong>3 tentativas erradas bloqueiam o acesso</div>
+      </div>
+      <div class="ct-item">
+        <div class="ct-num">05</div>
+        <div class="ct-text"><strong>Login com sucesso — US01</strong>Login case-insensitive; senha case-sensitive</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Login Panel ── -->
+  <div class="login-panel">
+
+    <div class="form-logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </div>
+      <div class="logo-label">
+        <strong>Sistema de Acesso</strong>
+        CEUB — Educação Superior
+      </div>
+    </div>
+
+    <h1 class="form-title">Bem-vindo</h1>
+    <p class="form-sub">Informe suas credenciais para continuar.</p>
+
+    <!-- Form -->
+    <div id="form-area">
+      <div class="field">
+        <label for="login-input">Login</label>
+        <div class="input-wrap">
+          <!-- user icon -->
+          <svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          <input type="text" id="login-input" placeholder="Digite seu login" autocomplete="username" />
+        </div>
+        <div class="field-err" id="login-err"></div>
+      </div>
+
+      <div class="field">
+        <label for="senha-input">Senha</label>
+        <div class="input-wrap">
+          <!-- key icon -->
+          <svg class="ico" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="m12 11 9-9"/><path d="m17 6 2 2"/><path d="m15 8 2 2"/></svg>
+          <input type="password" id="senha-input" placeholder="Digite sua senha" autocomplete="current-password" />
+          <button class="eye-btn" id="toggle-pw" type="button" aria-label="Mostrar ou ocultar senha">
+            <svg id="eye-svg" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </div>
+        <div class="field-err" id="senha-err"></div>
+      </div>
+
+      <div class="attempt-row" id="attempt-row" aria-live="polite">
+        <span class="adot" id="d1"></span>
+        <span class="adot" id="d2"></span>
+        <span class="adot" id="d3"></span>
+        <span class="alabel" id="alabel">3 tentativas disponíveis</span>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-ok" id="btn-ok" type="button">
+          <svg viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+          OK
+        </button>
+        <button class="btn-clear" id="btn-clear" type="button">
+          <svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>
+          Limpar
+        </button>
+      </div>
+
+      <div class="toast" id="toast">
+        <svg viewBox="0 0 24 24" id="toast-icon">
+          <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        <span id="toast-msg"></span>
+      </div>
+
+      <div class="form-hint">
+        <div class="hint-row">
+          <span style="color: var(--muted);">Login válido:</span>
+          <span class="hint-tag">admin</span>
+          <span style="color: var(--muted); font-size:11px;">(case insensitive — ADMIN, Admin…)</span>
+        </div>
+        <div class="hint-row">
+          <span style="color: var(--muted);">Senha válida:</span>
+          <span class="hint-tag">Abc123</span>
+          <span style="color: var(--muted); font-size:11px;">(case sensitive)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blocked overlay -->
+    <div class="blocked" id="blocked">
+      <div class="blocked-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><line x1="12" y1="15" x2="12" y2="18"/></svg>
+      </div>
+      <h2>Usuário bloqueado</h2>
+      <p>Após 3 tentativas incorretas consecutivas, o acesso foi bloqueado. Contate o administrador do sistema — <strong>E.3 / RN01</strong>.</p>
+      <button class="btn-retry" id="btn-retry">Reiniciar demonstração</button>
+    </div>
+
+    <!-- Success overlay -->
+    <div class="success-overlay" id="success-overlay">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h2>Acesso concedido!</h2>
+      <p>CT01 05 — Login realizado com sucesso. US01 aplicada: login case insensitive, senha case sensitive.</p>
+      <button class="btn-retry" id="btn-retry2">Testar novamente</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const VALID_LOGIN = "admin";
+  const VALID_SENHA = "Abc123";
+  const MAX = 3;
+  let attempts = 0;
+  let pwOn = false;
+
+  const $ = id => document.getElementById(id);
+  const loginIn  = $("login-input");
+  const senhaIn  = $("senha-input");
+  const loginErr = $("login-err");
+  const senhaErr = $("senha-err");
+  const toast    = $("toast");
+  const toastMsg = $("toast-msg");
+  const btnOk    = $("btn-ok");
+  const btnClear = $("btn-clear");
+  const formArea = $("form-area");
+  const blocked  = $("blocked");
+  const successO = $("success-overlay");
+
+  function clearErrors() {
+    loginErr.innerHTML = ""; senhaErr.innerHTML = "";
+    loginIn.classList.remove("err"); senhaIn.classList.remove("err");
+    toast.className = "toast";
+  }
+
+  function showToast(msg, type) {
+    toast.className = "toast show " + type;
+    const icons = {
+      danger:  '<circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>',
+      success: '<polyline points="20 6 9 17 4 12"/>',
+      warning: '<path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>'
+    };
+    $("toast-icon").innerHTML = icons[type] || icons.danger;
+    toastMsg.textContent = msg;
+  }
+
+  function fieldErr(el, errEl, msg) {
+    el.classList.add("err");
+    errEl.innerHTML = `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>${msg}`;
+  }
+
+  function updateDots() {
+    for (let i = 1; i <= MAX; i++) {
+      $("d" + i).classList.toggle("used", i <= attempts);
+    }
+    const rem = MAX - attempts;
+    $("alabel").textContent = rem <= 0 ? "Nenhuma tentativa restante" :
+      rem + (rem === 1 ? " tentativa restante" : " tentativas disponíveis");
+  }
+
+  function reset() {
+    attempts = 0; updateDots();
+    loginIn.value = ""; senhaIn.value = "";
+    clearErrors();
+    blocked.classList.remove("show");
+    successO.classList.remove("show");
+    formArea.style.display = "";
+    btnOk.disabled = false;
+    loginIn.focus();
+  }
+
+  $("toggle-pw").addEventListener("click", () => {
+    pwOn = !pwOn;
+    senhaIn.type = pwOn ? "text" : "password";
+    const paths = pwOn
+      ? '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>'
+      : '<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/>';
+    $("eye-svg").innerHTML = paths;
+  });
+
+  btnClear.addEventListener("click", () => {
+    loginIn.value = ""; senhaIn.value = "";
+    clearErrors(); loginIn.focus();
+  });
+
+  btnOk.addEventListener("click", () => {
+    clearErrors();
+    const login = loginIn.value.trim();
+    const senha = senhaIn.value;
+
+    if (!login && !senha) {
+      fieldErr(loginIn, loginErr, "O campo Login deve ser informado");
+      fieldErr(senhaIn, senhaErr, "O campo Senha deve ser informado");
+      showToast("O(s) campo(s) Login e Senha deve(m) ser informado(s)", "danger");
+      loginIn.focus(); return;
+    }
+    if (!login) {
+      fieldErr(loginIn, loginErr, "O campo Login deve ser informado");
+      showToast("O(s) campo(s) Login deve(m) ser informado(s)", "danger");
+      loginIn.focus(); return;
+    }
+    if (!senha) {
+      fieldErr(senhaIn, senhaErr, "O campo Senha deve ser informado");
+      showToast("O(s) campo(s) Senha deve(m) ser informado(s)", "danger");
+      senhaIn.focus(); return;
+    }
+
+    const loginOk = login.toLowerCase() === VALID_LOGIN;
+    const senhaOk = senha === VALID_SENHA;
+
+    if (loginOk && senhaOk) {
+      formArea.style.display = "none";
+      successO.classList.add("show");
+      return;
+    }
+
+    attempts++;
+    updateDots();
+
+    if (!loginOk) fieldErr(loginIn, loginErr, "Login não encontrado");
+    if (!senhaOk) fieldErr(senhaIn, senhaErr, "Senha incorreta");
+    senhaIn.value = "";
+
+    if (attempts >= MAX) {
+      setTimeout(() => {
+        formArea.style.display = "none";
+        blocked.classList.add("show");
+      }, 800);
+      showToast("Usuário bloqueado após 3 tentativas incorretas — RN01", "warning");
+    } else {
+      showToast("O Login ou a Senha informados não são válidos", "danger");
+      senhaIn.focus();
+    }
+  });
+
+  $("btn-retry").addEventListener("click", reset);
+  $("btn-retry2").addEventListener("click", reset);
+
+  [loginIn, senhaIn].forEach(el => {
+    el.addEventListener("keydown", e => { if (e.key === "Enter") btnOk.click(); });
+    el.addEventListener("input", clearErrors);
+  });
+
+  loginIn.focus();
+</script>
+</body>
+</html>
