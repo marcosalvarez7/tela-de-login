@@ -2,7 +2,7 @@
 
 Simulação interativa de uma tela de login desenvolvida como estudo de caso para a disciplina de **Engenharia de Software** do CEUB, implementando os Casos de Teste definidos na especificação de Caso de Uso.
 
-🔗 **[Acesse a demonstração ao vivo](https://gustavolg95.github.io/Tela_de_login/)**
+🔗 **[Acesse a demonstração ao vivo](https://marcosalvarez7.github.io/tela-de-login/)**
 
 ---
 
@@ -99,4 +99,3 @@ python -m http.server
 > Instituição: CEUB — Centro Universitário de Brasília
 >
 > Objetivo: Demonstrar na prática a execução de casos de teste sobre um caso de uso de autenticação
->
