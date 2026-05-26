@@ -8,17 +8,14 @@
 </head>
 <body>
 
-<!-- BG -->
 <div class="wallpaper"></div>
 <div class="blob b1"></div>
 <div class="blob b2"></div>
 <div class="blob b3"></div>
 <div class="stars"></div>
 
-<!-- SCREEN -->
 <div class="screen">
 
-  <!-- ── LEFT PANEL ── -->
   <div class="info-panel">
     <div class="badge"><span class="badge-dot"></span>Engenharia de Software — CEUB</div>
     <h2 class="info-title">Estudo de Caso:<br><em>Testes de Software</em></h2>
@@ -32,25 +29,20 @@
     </div>
   </div>
 
-  <!-- ── RIGHT LOGIN PANEL ── -->
   <div class="login-panel">
 
-    <!-- Clock -->
     <div class="clock-wrap" id="clock-wrap">
       <div class="clock-time" id="clock-time">00:00</div>
       <div class="clock-date" id="clock-date"></div>
     </div>
 
-    <!-- Avatar -->
     <div class="avatar-wrap" id="avatar-wrap">
       <div class="avatar">👤</div>
       <div class="username">Usuário</div>
     </div>
 
-    <!-- Form -->
     <div class="pw-form" id="form-area">
 
-      <!-- LOGIN -->
       <div class="field-group">
         <label class="field-label" for="login-input">Login</label>
         <div class="input-wrap">
@@ -62,7 +54,6 @@
         <div class="field-err" id="login-err"></div>
       </div>
 
-      <!-- SENHA -->
       <div class="field-group">
         <label class="field-label" for="senha-input">Senha</label>
         <div class="input-wrap">
@@ -80,7 +71,6 @@
         <div class="field-err" id="senha-err"></div>
       </div>
 
-      <!-- Dots -->
       <div class="dots-row" id="dots-row" aria-live="polite">
         <span class="adot" id="d1"></span>
         <span class="adot" id="d2"></span>
@@ -88,7 +78,6 @@
         <span class="adot-label" id="adot-label">3 tentativas disponíveis</span>
       </div>
 
-      <!-- Buttons -->
       <div class="btn-row">
         <button class="btn-ok" id="btn-ok" type="button">
           <svg viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
@@ -100,25 +89,21 @@
         </button>
       </div>
 
-      <!-- Toast -->
       <div class="toast" id="toast" role="alert" aria-live="assertive">
         <svg id="toast-ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
         <span id="toast-msg"></span>
       </div>
 
-      <!-- Links -->
       <div class="win-links">
         <button class="win-link" id="btn-forgot">Esqueci minha senha</button>
         <button class="win-link" id="btn-options">Opções de entrada</button>
       </div>
 
-      <!-- Hint -->
       <div class="hint-pill">
         Login: <code>admin</code> (case insensitive) &nbsp;|&nbsp; Senha: <code>Abc123</code> (case sensitive)
       </div>
     </div>
 
-    <!-- BLOCKED -->
     <div class="overlay" id="blocked" role="alert">
       <div class="ov-icon danger">🔒</div>
       <div class="ov-title">Usuário bloqueado</div>
@@ -127,7 +112,6 @@
       <button class="btn-back" id="btn-retry">Reiniciar demonstração</button>
     </div>
 
-    <!-- SUCCESS -->
     <div class="overlay" id="success" role="status">
       <div class="ov-icon success-ico">✅</div>
       <div class="ov-title">Acesso concedido!</div>
@@ -135,14 +119,12 @@
       <button class="btn-back" id="btn-retry2">Sair da sessão</button>
     </div>
 
-  </div><!-- /login-panel -->
-</div><!-- /screen -->
+  </div>
+</div>
 
-<!-- TASKBAR -->
 <div class="taskbar">
   <div></div>
   <div class="tb-center">
-    <!-- Start -->
     <button class="tb-btn" title="Iniciar">
       <svg viewBox="0 0 24 24" fill="rgba(255,255,255,.85)">
         <rect x="3"  y="3"  width="8" height="8" rx="1" opacity=".9"/>
@@ -151,13 +133,11 @@
         <rect x="13" y="13" width="8" height="8" rx="1" opacity=".9"/>
       </svg>
     </button>
-    <!-- Search -->
     <button class="tb-btn" title="Pesquisar">
       <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.82)" stroke-width="2" stroke-linecap="round">
         <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
       </svg>
     </button>
-    <!-- Task view -->
     <button class="tb-btn" title="Visão de tarefas">
       <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.82)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <rect x="3" y="3" width="7" height="7" rx="1"/>
@@ -166,7 +146,6 @@
         <rect x="14" y="14" width="7" height="7" rx="1"/>
       </svg>
     </button>
-    <!-- Edge -->
     <button class="tb-btn" title="Microsoft Edge">
       <svg viewBox="0 0 24 24" fill="none">
         <circle cx="12" cy="12" r="10" fill="rgba(0,120,212,.9)"/>
@@ -174,7 +153,6 @@
         <path d="M17 10c0-3-2-5-5-5-2 0-4 1-5 3h8c.5.6 1 1.2 1 2z" fill="rgba(255,255,255,.70)"/>
       </svg>
     </button>
-    <!-- Explorer -->
     <button class="tb-btn" title="Explorador de Arquivos">
       <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,195,0,.92)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
         <path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6z"/>
@@ -188,7 +166,6 @@
 </div>
 
 <script>
-// ── Clock ──
 const DIAS  = ['domingo','segunda-feira','terça-feira','quarta-feira','quinta-feira','sexta-feira','sábado'];
 const MESES = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
 
@@ -206,7 +183,6 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 
-// ── Auth logic ──
 const VALID_LOGIN = 'admin';
 const VALID_SENHA = 'Abc123';
 const MAX = 3;
@@ -231,7 +207,6 @@ const ICO = {
   success: '<polyline points="20 6 9 17 4 12"/>',
   warning: '<path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>'
 };
-
 const ERRSVG = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>';
 
 function clearErrors() {
@@ -239,18 +214,15 @@ function clearErrors() {
   loginIn.classList.remove('err'); senhaIn.classList.remove('err');
   toast.className = 'toast';
 }
-
 function showToast(msg, type) {
   toast.className = 'toast show ' + type;
   toastIco.innerHTML = ICO[type] || ICO.danger;
   toastMsg.textContent = msg;
 }
-
 function fieldErr(input, errEl, msg) {
   input.classList.add('err');
   errEl.innerHTML = ERRSVG + msg;
 }
-
 function updateDots() {
   for (let i = 1; i <= MAX; i++)
     document.getElementById('d'+i).classList.toggle('used', i <= attempts);
@@ -259,13 +231,15 @@ function updateDots() {
     rem <= 0 ? 'Nenhuma tentativa restante' :
     rem + (rem === 1 ? ' tentativa restante' : ' tentativas disponíveis');
 }
-
+function hideAll() {
+  formArea.style.display  = 'none';
+  clockW.style.display    = 'none';
+  avatarW.style.display   = 'none';
+}
 function doLogin() {
   clearErrors();
   const login = loginIn.value.trim();
   const senha = senhaIn.value;
-
-  // CT01 01 — campos obrigatórios
   if (!login && !senha) {
     fieldErr(loginIn, loginErr, 'O campo Login deve ser informado');
     fieldErr(senhaIn, senhaErr, 'O campo Senha deve ser informado');
@@ -282,42 +256,22 @@ function doLogin() {
     showToast('O(s) campo(s) Senha deve(m) ser informado(s)', 'danger');
     senhaIn.focus(); return;
   }
-
-  const loginOk = login.toLowerCase() === VALID_LOGIN; // US01 case insensitive
-  const senhaOk = senha === VALID_SENHA;               // US01 case sensitive
-
-  // CT01 05 — sucesso
+  const loginOk = login.toLowerCase() === VALID_LOGIN;
+  const senhaOk = senha === VALID_SENHA;
   if (loginOk && senhaOk) {
-    formArea.style.display = 'none';
-    clockW.style.display   = 'none';
-    avatarW.style.display  = 'none';
-    successEl.classList.add('show');
-    return;
+    hideAll(); successEl.classList.add('show'); return;
   }
-
-  attempts++;
-  updateDots();
-  senhaIn.value = '';
-
+  attempts++; updateDots(); senhaIn.value = '';
   if (!loginOk) fieldErr(loginIn, loginErr, 'Login não encontrado no sistema');
   if (!senhaOk) fieldErr(senhaIn, senhaErr, 'Senha incorreta');
-
-  // CT01 04 — bloqueio RN01
   if (attempts >= MAX) {
     showToast('Usuário bloqueado após 3 tentativas incorretas — RN01', 'warning');
-    setTimeout(() => {
-      formArea.style.display = 'none';
-      clockW.style.display   = 'none';
-      avatarW.style.display  = 'none';
-      blockedEl.classList.add('show');
-    }, 700);
+    setTimeout(() => { hideAll(); blockedEl.classList.add('show'); }, 700);
   } else {
-    // CT01 02/03 — inválido
     showToast('O Login ou a Senha informados não são válidos', 'danger');
     senhaIn.focus();
   }
 }
-
 function reset() {
   attempts = 0; updateDots();
   loginIn.value = ''; senhaIn.value = '';
@@ -330,7 +284,6 @@ function reset() {
   loginIn.focus();
 }
 
-// Eye toggle
 document.getElementById('eye-btn').addEventListener('click', () => {
   pwOn = !pwOn;
   senhaIn.type = pwOn ? 'text' : 'password';
@@ -338,12 +291,10 @@ document.getElementById('eye-btn').addEventListener('click', () => {
     ? '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>'
     : '<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/>';
 });
-
 document.getElementById('submit-btn').addEventListener('click', doLogin);
 btnOk.addEventListener('click', doLogin);
 document.getElementById('btn-clear').addEventListener('click', () => {
-  loginIn.value = ''; senhaIn.value = '';
-  clearErrors(); loginIn.focus();
+  loginIn.value = ''; senhaIn.value = ''; clearErrors(); loginIn.focus();
 });
 document.getElementById('btn-forgot').addEventListener('click', () =>
   alert('Recuperação não disponível nesta demonstração.\n\nDica: Senha = "Abc123" (case sensitive)'));
@@ -351,12 +302,10 @@ document.getElementById('btn-options').addEventListener('click', () =>
   alert('Login: admin (case insensitive — US01)\nSenha: Abc123 (case sensitive — US01)'));
 document.getElementById('btn-retry').addEventListener('click', reset);
 document.getElementById('btn-retry2').addEventListener('click', reset);
-
 [loginIn, senhaIn].forEach(el => {
   el.addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
   el.addEventListener('input',   () => clearErrors());
 });
-
 loginIn.focus();
 </script>
 </body>
